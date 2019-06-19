@@ -36,6 +36,8 @@ namespace Cake
                 float precoBolo = float.Parse(txtPrecoBolo.Text);
                 string descricaoBolo = txtDescricaoBolo.Text;
                 chamaCB.cadastrarBolo(codigoBolo, nomeBolo, descricaoBolo, precoBolo);
+
+                dtGBolos.DataSource = chamaCB.CarregaTabelaBolo();
             }
             else
                 MessageBox.Show("Preencha todos os campos corretamente");
@@ -73,6 +75,7 @@ namespace Cake
                 string descricaoBolo = txtDescricaoBolo.Text;
 
                 chamaAB.alterarBolo(codigoBolo, nomeBolo, descricaoBolo, precoBolo);
+                dtGBolos.DataSource = chamaAB.CarregaTabelaBolo();// Atualizando a greed de bolos
             }
             else
             {
@@ -105,6 +108,8 @@ namespace Cake
                 Class1 chamaEB = new Class1();
                 string nomeBolo = txtNomeBolo.Text;
                 chamaEB.ExcluirBolo(nomeBolo);
+
+                dtGBolos.DataSource = chamaEB.CarregaTabelaBolo(); // função para atualizar a greed de bolos
             }
             else
             {
